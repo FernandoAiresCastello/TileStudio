@@ -24,6 +24,9 @@ namespace TileStudio.Core
 
         public void Load(string filename)
         {
+            if (!File.Exists(filename))
+                return;
+
             Clear();
 
             byte[] paletteBytes = File.ReadAllBytes(filename);
