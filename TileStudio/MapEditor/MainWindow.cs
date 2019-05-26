@@ -160,8 +160,11 @@ namespace TileStudio.MapEditor
             Bitmap preview = new Bitmap(Tile.Width * zoom, Tile.Height * zoom);
             Graphics g = Graphics.FromImage(preview);
 
-            Tileset[TileIndex].Draw(g, 0, 0, zoom, zoom,
-                Palette[TileColor1], Palette[TileColor2], Palette[TileColor3], true);
+            if (TileIndex < Tileset.Count)
+            {
+                Tileset[TileIndex].Draw(g, 0, 0, zoom, zoom,
+                    Palette[TileColor1], Palette[TileColor2], Palette[TileColor3], true);
+            }
 
             PreviewTileBox.BackColor = Palette[Map.BackColor];
             PreviewTileBox.Image = preview;
